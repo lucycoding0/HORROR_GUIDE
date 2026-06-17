@@ -1,0 +1,319 @@
+<html>
+    <head>
+        <title>HORROR GUIDE</title>
+
+        <meta name="viewport" content="user-scalable-no,initial-scale=1,maximum-scale=1">
+
+        <style>
+            /* 폰트 */
+            @font-face {
+                font-family: 'HbiosSys';
+                src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2207-01@1.0/HBIOS-SYS.woff2') format('woff2');
+                font-weight: normal;
+                font-display: swap;
+            }
+            .paragraph1 { font-family: "HbiosSys", serif }
+
+            @font-face {
+                font-family: 'DosHandwriting';
+                src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/DOSPilgiMedium.woff2') format('woff2');
+                font-weight: normal;
+                font-display: swap;
+            }
+            .paragraph2 { font-family: "DosHandwriting", serif }
+
+            @font-face {
+                font-family: 'RoundedFixedsys';
+                src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
+                font-weight: normal;
+                font-display: swap;
+            }
+            .paragraph3 { font-family: "RoundedFixedsys", serif }
+
+            /* 반응형 */
+            @media screen {
+                body {
+                    color: white;
+                    background-color: #393939; }
+            }
+
+            /* 태블릿 */
+            @media (max-width: 992px) {
+                .top-row,
+                .bottom-row {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+
+            /* 모바일 */
+            @media (max-width: 576px) {
+                .top-row,
+                .bottom-row {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            *{
+                margin:0;
+                padding:0;
+                box-sizing:border-box;
+            }
+
+            body{
+                background:#333;
+            }
+
+            /* 헤더 */
+            .header{
+                display:flex;
+                justify-content:center;
+                align-items:center;
+                padding: 80px;
+                background:#2f2f2f;
+            }
+
+            #header {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                padding: 10px 0;
+                z-index: 9999;
+                background: #111;
+            }
+            
+            #header .container {
+                display: flex;
+                align-items: center;
+            }
+
+            /* 네비게이션 바 */
+            #navbar {
+                margin-left: 600px;
+            }
+
+            .logo a{
+                text-decoration:none;
+                color:white;
+                font-size:30px;
+                padding: 10px;
+                margin: 10px;
+            }
+
+            .menu{
+                display:flex;
+                list-style:none;
+                gap:50px;
+                padding: 10px;
+            }
+
+            .menu a{
+                text-decoration:none;
+                color:white;
+                font-size:18px;
+                font-weight:600;
+                transition:0.3s;
+            }
+
+            .menu a:hover{
+                color:#c0392b;
+            }
+
+            .about {
+                background: linear-gradient(to bottom, #0a0a0a, #151515);
+                color: #e0e0e0;
+                padding: 100px 40px;
+            }
+
+            .container {
+                width: 100%;
+                margin: auto;
+            }
+
+            .section-title {
+                text-align: center;
+                margin-bottom: 50px;
+            }
+
+            .section-title h2 {
+                color: #b30000;
+                font-size: 42px;
+                margin-bottom: 20px;
+                text-shadow: 0 0 15px rgba(179,0,0,0.7);
+            }
+
+            .section-title p {
+                max-width: 1000px;
+                margin: auto;
+                line-height: 1.8;
+            }
+
+            .about-content {
+                max-width: 1000px;
+                margin: auto;
+                text-align: center;
+            }
+
+            .about-content p {
+                margin-bottom: 25px;
+                line-height: 1.8;
+            }
+
+            /* 특징 정리 카드 -> GPT 사용 */
+            .features {
+                margin-top: 60px;
+                display: grid;
+                grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+                gap: 25px;
+            }
+
+            .feature-card {
+                background: rgba(255,255,255,0.03);
+                border: 1px solid rgba(179,0,0,0.3);
+                padding: 25px;
+                border-radius: 15px;
+                transition: 0.4s;
+            }
+
+            .feature-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 0 20px rgba(179,0,0,0.5);
+            }
+
+            .feature-card h3 {
+                color: #ff4d4d;
+                margin-bottom: 15px;
+            }
+
+            .feature-card ul {
+                list-style: none;
+            }
+
+            .feature-card li {
+                padding: 8px 0;
+            }
+
+            /* 푸터 섹션 */
+            .copyright {
+                padding: 50px;
+            }
+
+        </style>
+        
+    </head>
+
+    <body>
+        <!--헤더-->
+        <header id="header" class="fixed-top">
+            <div class="container">
+                <h1 class="logo">
+                    <a href="index.html">HORROR GUIDE</a>
+                </h1>
+                
+                <!--네비게이션 바-->
+                <nav id="navbar" class="navbar">
+                    <ul class="menu">
+                        <li><a class="nav-link scrollto" href="#hero">홈</a></li>
+                        <li><a class="nav-link scrollto" href="#about">사이트 소개</a></li>
+                        <li><a class="nav-link scrollto" href="#genre">공포 장르</a></li>
+                        <li><a class="nav-link scrollto" href="#novel">추천 작품</a></li>
+                        <li><a class="nav-link scrollto" href="#trend">공포 트렌드</a></li>
+                        <li><a class="nav-link scrollto" href="#community">커뮤니티 게시판</a></li>
+                        <li><a class="nav-link scrollto" href="#contact">문의</a></li>
+                    </ul>
+                    <i class="bi bi-list mobile-nav-toggle"></i>
+                </nav>
+            </div>
+        </header>
+        
+        <section id="about" class="about">
+            <div class="container">
+
+                <div class="section-title">
+                    <h2>사이트 소개</h2>
+                    <p>
+                        국내 공포 웹소설 아카이브는 한국의 다양한 공포 웹소설과 괴담 콘텐츠를 한곳에 모아 소개하는 아카이브형 웹사이트입니다.
+                    </p>
+                </div>
+
+                <div class="about-content">
+                    <p>
+                        최근 공포 장르는 웹소설, 괴담, 오컬트, 미스터리 등 다양한 형태로 발전하며 많은 독자들의 관심을 받고 있습니다.<br>
+                        하지만 작품 정보가 여러 플랫폼에 흩어져 있어 원하는 작품을 찾기 어렵다는 문제점이 있습니다.
+                    </p>
+
+                    <p>
+                        본 사이트는 국내 공포 웹소설을 체계적으로 정리하고 추천 작품 정보를 제공하여<br>
+                        공포 장르에 관심 있는 독자들이 쉽고 편리하게 작품을 탐색할 수 있도록 돕는 것을 목표로 합니다.
+                    </p>
+
+                    <p>
+                        또한 장르별 분류, 인기 작품 추천, 최신 공포 트렌드 소개, 독자 커뮤니티 기능을 통해 공포 콘텐츠를 더욱 깊이 있게 즐길 수 있는 공간을 제공합니다.
+                    </p>
+                </div>
+
+                <div class="features">
+
+                    <div class="feature-card">
+                        <h3>👻 공포 웹소설 정보</h3>
+                        <ul>
+                            <li>다양한 플랫폼의 작품 소개</li>
+                            <li>줄거리 및 특징 정리</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3>📚 장르별 분류</h3>
+                        <ul>
+                            <li>괴담</li>
+                            <li>오컬트</li>
+                            <li>미스터리</li>
+                            <li>스릴러</li>
+                            <li>도시전설</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3>⭐ 추천 작품</h3>
+                        <ul>
+                            <li>입문자 추천작</li>
+                            <li>인기 작품</li>
+                            <li>숨겨진 명작</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3>📈 공포 트렌드</h3>
+                        <ul>
+                            <li>최근 인기 키워드</li>
+                            <li>독자 선호도</li>
+                            <li>화제의 작품 소개</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3>💬 커뮤니티</h3>
+                        <ul>
+                            <li>독자 후기 공유</li>
+                            <li>작품 추천</li>
+                            <li>공포 콘텐츠 토론</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <footer id="footer">
+            <div class="container d-md-flex py-4">
+                <div class="me-md-auto text-center text-md-start">
+                    <div class="copyright">
+                        " © Copyright " <storng><span>HORROR GUIDE</span></storng> ". All Rights Reserved"
+                    </div>
+                </div>
+            </div>
+        </footer>
+        
+    </body>
+</html>
