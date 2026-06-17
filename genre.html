@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HORROR GUIDE</title>
+
+        <meta name="viewport" content="user-scalable-no,initial-scale=1,maximum-scale=1">
+
+        <style>
+            /* 폰트 */
+            @font-face {
+                font-family: 'HbiosSys';
+                src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2207-01@1.0/HBIOS-SYS.woff2') format('woff2');
+                font-weight: normal;
+                font-display: swap;
+            }
+            .paragraph1 { font-family: "HbiosSys", serif }
+
+            @font-face {
+                font-family: 'DosHandwriting';
+                src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/DOSPilgiMedium.woff2') format('woff2');
+                font-weight: normal;
+                font-display: swap;
+            }
+            .paragraph2 { font-family: "DosHandwriting", serif }
+
+            @font-face {
+                font-family: 'RoundedFixedsys';
+                src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
+                font-weight: normal;
+                font-display: swap;
+            }
+            .paragraph3 { font-family: "RoundedFixedsys", serif }
+
+            /* 반응형 */
+            @media screen {
+                body {
+                    color: white;
+                    background-color: #393939; }
+            }
+
+            /* 태블릿 -> GPT 사용 */
+            @media (max-width: 992px) {
+                .top-row,
+                .bottom-row {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+
+            /* 모바일 -> GPT 사용 */
+            @media (max-width: 576px) {
+                .top-row,
+                .bottom-row {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            *{
+                margin:0;
+                padding:0;
+                box-sizing:border-box;
+            }
+
+            /* 헤더 */
+            .header{
+                display:flex;
+                justify-content:center;
+                align-items:center;
+                padding: 80px;
+                background:#2f2f2f;
+            }
+
+            #header {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                padding: 10px 0;
+                z-index: 9999;
+                background: #111;
+            }
+            
+            #header .container {
+                display: flex;
+                align-items: center;
+            }
+
+            /* 네비게이션 바 */
+            #navbar {
+                margin-left: 600px;
+            }
+
+            .logo a{
+                text-decoration:none;
+                color:white;
+                font-size:30px;
+                padding: 10px;
+                margin: 10px;
+            }
+
+            .menu{
+                display:flex;
+                list-style:none;
+                gap:50px;
+                padding: 10px;
+            }
+
+            .menu a{
+                text-decoration:none;
+                color:white;
+                font-size:18px;
+                font-weight:600;
+                transition:0.3s;
+            }
+
+            .menu a:hover{
+                color:#c0392b;
+            }
+
+            /* 공포 장르 디테일 */
+            .genre-detail {
+                background: #111;
+                padding: 100px 0;
+            }
+
+            .genre-detail .container {
+                width: 90%;
+                max-width: 1300px;
+                margin: auto;
+            }
+
+            /* 상단 영역 */
+            .detail-grid {
+                display: grid;
+                grid-template-columns: 2fr 1fr;
+                gap: 40px;
+                align-items: start;
+            }
+
+            /* 이미지 */
+            .detail-image img {
+                width: 80%;
+                border-radius: 15px;
+                display: block;
+            }
+
+            /* 정보 카드 */
+            .detail-info {
+                background: #1b1b1b;
+                padding: 30px;
+                border-radius: 15px;
+                border: 1px solid rgba(180,0,0,0.3);
+            }
+
+            .detail-info h3 {
+                color: white;
+                margin-bottom: 25px;
+            }
+
+            .detail-info ul {
+                list-style: none;
+                padding: 0;
+            }
+
+            .detail-info li {
+                color: #d0d0d0;
+                margin-bottom: 18px;
+                line-height: 1.6;
+            }
+
+            .detail-info strong {
+                color: #b30000;
+            }
+
+            /* 설명 영역 */
+            .genre-description {
+                margin-top: 60px;
+            }
+
+            .genre-description h2 {
+                color: white;
+                margin-bottom: 25px;
+                font-size: 38px;
+            }
+
+            .genre-description p {
+                color: #c0c0c0;
+                line-height: 1.9;
+                margin-bottom: 20px;
+                font-size: 17px;
+            }
+
+            /* 모바일 */
+            @media (max-width: 992px) {
+
+                .detail-grid {
+                    grid-template-columns: 1fr;
+                }
+
+            }
+
+            /* 푸터 섹션 */
+            .copyright {
+                padding: 50px;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <!--헤더-->
+        <header id="header" class="fixed-top">
+            <div class="container">
+                <h1 class="logo">
+                    <a href="index.html">HORROR GUIDE</a>
+                </h1>
+                
+                <!--내비게이션 바-->
+                <nav id="navbar" class="navbar">
+                    <ul class="menu">
+                        <li><a class="nav-link scrollto" href="#hero">홈</a></li>
+                        <li><a class="nav-link scrollto" href="#about">사이트 소개</a></li>
+                        <li><a class="nav-link scrollto" href="#genre">공포 장르</a></li>
+                        <li><a class="nav-link scrollto" href="#novel">추천 작품</a></li>
+                        <li><a class="nav-link scrollto" href="#trend">공포 트렌드</a></li>
+                        <li><a class="nav-link scrollto" href="#community">커뮤니티 게시판</a></li>
+                        <li><a class="nav-link scrollto" href="#contact">문의</a></li>
+                    </ul>
+                    <i class="bi bi-list mobile-nav-toggle"></i>
+                </nav>
+            </div>
+        </header>
+
+        <section class="genre-detail">
+            <div class="container">
+                <div class="detail-grid">
+
+                    <!-- 왼쪽 이미지 -->
+                    <div class="detail-image">
+                        <img src="mind.jpg" alt="심리 공포">
+                    </div>
+
+                    <!-- 오른쪽 정보 -->
+                    <div class="detail-info">
+                        <h3>장르 정보</h3>
+
+                        <ul>
+                            <li><strong>장르</strong> : 심리 공포</li>
+                            <li><strong>특징</strong> : 인간 내면의 불안과 광기</li>
+                            <li><strong>대표 요소</strong> : 환각, 망상, 집착</li>
+                            <li><strong>분위기</strong> : 긴장감, 불안감</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <!-- 상세 설명 -->
+                <div class="genre-description">
+
+                    <h2>심리 공포란?</h2>
+
+                    <p>
+                        심리 공포는 귀신이나 괴물보다 인간의 정신적 불안과 공포를
+                        중심으로 전개되는 장르입니다.
+                        현실과 환상의 경계가 무너지며 독자에게 강한 긴장감을 줍니다.
+                    </p>
+
+                    <p>
+                        주인공의 광기, 트라우마, 집착 등이 주요 소재로 사용되며
+                        사건의 진실을 추적하는 과정에서 독자 역시 불안감을 느끼게 됩니다.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <footer id="footer">
+            <div class="container d-md-flex py-4">
+                <div class="me-md-auto text-center text-md-start">
+                    <div class="copyright">
+                        " © Copyright " <storng><span>HORROR GUIDE</span></storng> ". All Rights Reserved"
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </body>
+</html>
