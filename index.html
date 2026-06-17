@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HORROR GUIDE</title>
+
+        <meta name="viewport" content="user-scalable-no,initial-scale=1,maximum-scale=1">
+
+        <style>
+            /* 폰트 */
+            @font-face {
+                font-family: 'HbiosSys';
+                src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2207-01@1.0/HBIOS-SYS.woff2') format('woff2');
+                font-weight: normal;
+                font-display: swap;
+            }
+            .paragraph1 { font-family: "HbiosSys", serif }
+
+            @font-face {
+                font-family: 'DosHandwriting';
+                src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/DOSPilgiMedium.woff2') format('woff2');
+                font-weight: normal;
+                font-display: swap;
+            }
+            .paragraph2 { font-family: "DosHandwriting", serif }
+
+            @font-face {
+                font-family: 'RoundedFixedsys';
+                src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
+                font-weight: normal;
+                font-display: swap;
+            }
+            .paragraph3 { font-family: "RoundedFixedsys", serif }
+
+            /* 반응형 */
+            @media screen {
+                body {
+                    color: white;
+                    background-color: #393939; }
+            }
+
+            /* 태블릿 -> GPT 사용 */
+            @media (max-width: 992px) {
+                .top-row,
+                .bottom-row {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+
+            /* 모바일 -> GPT 사용 */
+            @media (max-width: 576px) {
+                .top-row,
+                .bottom-row {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            *{
+                margin:0;
+                padding:0;
+                box-sizing:border-box;
+            }
+
+            /* 헤더 */
+            .header{
+                display:flex;
+                justify-content:center;
+                align-items:center;
+                padding: 80px;
+                background:#2f2f2f;
+            }
+
+            #header {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                padding: 10px 0;
+                z-index: 9999;
+                background: #111;
+            }
+            
+            #header .container {
+                display: flex;
+                align-items: center;
+            }
+
+            /* 네비게이션 바 */
+            #navbar {
+                margin-left: 600px;
+            }
+
+            .logo a{
+                text-decoration:none;
+                color:white;
+                font-size:30px;
+                padding: 10px;
+                margin: 10px;
+            }
+
+            .menu{
+                display:flex;
+                list-style:none;
+                gap:50px;
+                padding: 10px;
+            }
+
+            .menu a{
+                text-decoration:none;
+                color:white;
+                font-size:18px;
+                font-weight:600;
+                transition:0.3s;
+            }
+
+            .menu a:hover{
+                color:#c0392b;
+            }
+
+            /* 홈 섹션 */
+            .hero {
+                padding: 300px;
+                text-align: center;
+                background-image: url('horror_background.jpg');
+                background-size: cover;
+                font-size: 30px;
+            }
+
+            .hero a {
+                font-size: 20px;
+            }
+
+            .hero h3{
+                margin-bottom: 20px;
+            }
+
+            .hero h1{
+                margin-bottom: 20px;
+            }
+
+            /* 홈 버튼 */
+            .btn-get-started {
+                text-decoration: none;
+                width: 200px;
+                height: 45px;
+                background-color: #ffffff;
+                border: 3px solid #FFFFFF;
+                border-radius: 30px;
+                margin: 70px auto 0;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            /* 홈 버튼 추가 -> GPT 사용 */
+            .btn-get-started a,
+            .btn-get-started a:visited {
+                text-decoration: none;
+                color: #8b0000;
+            }
+
+            /* 사이트 소개 섹션 */
+            .about {
+                padding: 100px 0;
+                background:#656565;
+            }
+
+            .about h2{
+                margin-bottom: 20px;
+            }
+
+            .about p{
+                margin-bottom: 10px;
+                font-size: 18px;
+            }
+
+            /* 사이트 소개 이동 버튼 */
+            .btn-learn-more {
+                text-decoration: none;
+                width: 200px;
+                height: 45px;
+                background-color: #ffffff;
+                color: #8b0000;
+                border: 3px solid #FFFFFF;
+                border-radius: 30px;
+                margin: 30px auto 0;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            /* 공포 장르 섹션 */
+            .genre {
+                padding: 100px 0;
+                background: #3e3e3e;
+            }
+
+            .genre .container {
+                width: 90%;
+                margin: auto;
+            }
+
+            .section-title {
+                text-align: center;
+                margin-bottom: 60px;
+            }
+
+            .section-title h2 {
+                color: white;
+                font-size: 42px;
+                margin-bottom: 20px;
+            }
+
+            .section-title p {
+                color: #c0c0c0;
+                line-height: 1.8;
+            }
+
+            /* 첫 번째 줄 -> GPT 사용 */
+            .top-row {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 25px;
+                margin-bottom: 25px;
+            }
+
+            /* 두 번째 줄 -> GPT 사용 */
+            .bottom-row {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 25px;
+            }
+
+            .icon-box {
+                background: #1b1b1b;
+                padding: 35px 25px;
+                border-radius: 12px;
+
+                text-align: center;
+
+                border: 1px solid rgba(180, 0, 0, 0.3);
+
+                transition: 0.4s;
+            }
+
+            .icon-box:hover {
+                transform: translateY(-10px);
+
+                box-shadow:
+                    0 0 15px rgba(180,0,0,0.4),
+                    0 0 30px rgba(180,0,0,0.2);
+            }
+
+            .icon {
+                font-size: 40px;
+                color: #b30000;
+                margin-bottom: 20px;
+            }
+
+            .icon-box h4 {
+                color: white;
+                margin-bottom: 15px;
+            }
+
+            .icon-box p {
+                color: #bfbfbf;
+                line-height: 1.6;
+            }
+
+            .novel {
+                padding: 100px 0;
+                background: #111;
+            }
+
+            .novel .container {
+                width: 90%;
+                margin: auto;
+            }
+
+            .genre-link {
+                display: block;
+                text-decoration: none;
+                color: inherit;
+                height: 100%;
+            }
+
+            .genre-link .icon-box {
+                width: 100%;
+            }
+
+            .genre-link:hover {
+                color: inherit;
+            }
+
+            /* 공포 트렌드 섹션 -> GPT 사용 */
+            .trend{
+                padding:100px 0;
+                background:#0d0d0d;
+                color:white;
+            }
+
+            .section-title{
+                text-align:center;
+                margin-bottom:50px;
+            }
+
+            .section-title h2{
+                font-size:42px;
+                margin-bottom:10px;
+            }
+
+            .section-title p{
+                color:#b5b5b5;
+            }
+
+            .trend-tabs{
+                display:flex;
+                justify-content:center;
+                flex-wrap:wrap;
+                list-style:none;
+                margin-bottom:40px;
+                padding:0;
+            }
+
+            .trend-tabs li{
+                margin:0 15px;
+                padding:10px 5px;
+                cursor:pointer;
+                font-weight:600;
+                position:relative;
+            }
+
+            .trend-tabs li.active{
+                color:#ff4040;
+            }
+
+            .trend-tabs li.active::after{
+                content:"";
+                position:absolute;
+                left:0;
+                bottom:-5px;
+                width:100%;
+                height:3px;
+                background:#ff4040;
+            }
+
+            .trend-board{
+                max-width:1000px;
+                margin:auto;
+                border-top:2px solid #333;
+            }
+
+            .trend-row{
+                display:grid;
+                grid-template-columns:
+                80px
+                150px
+                1fr
+                120px;
+
+                align-items:center;
+
+                padding:20px;
+                border-bottom:1px solid #222;
+
+                transition:.3s;
+            }
+
+            .trend-row:hover{
+                background:#171717;
+            }
+
+            .rank{
+                font-size:20px;
+                font-weight:bold;
+                color:#ff4040;
+            }
+
+            .category{
+                color:#ccc;
+            }
+
+            .title{
+                font-weight:500;
+            }
+
+            .change{
+                text-align:right;
+                font-weight:bold;
+            }
+
+            .up{
+                color:#4caf50;
+            }
+
+            .hide{
+                display:none;
+            }
+
+            /* 커뮤니티 게시판 섹션 */
+            .community{
+                padding: 120px;
+            }
+
+            .board-table{
+                width:100%;
+                border-collapse:collapse;
+            }
+
+            .board-table thead tr{
+                border-bottom:1px solid #444;
+            }
+
+            .board-table th{
+                padding:24px 0;
+                font-size:20px;
+                font-weight:700;
+                text-align:center;
+            }
+
+            .board-table tbody tr{
+                border-bottom:1px solid #333;
+                transition:0.3s;
+                cursor:pointer;
+            }
+
+            .board-table tbody tr:hover{
+                background:rgba(139,0,0,0.15);
+            }
+
+            .board-table td{
+                padding:30px 0;
+                text-align:center;
+                font-size:18px;
+            }
+
+            /* 열 너비 */
+
+            .board-table th:nth-child(1),
+            .board-table td:nth-child(1){
+                width:12%;
+            }
+
+            .board-table th:nth-child(2),
+            .board-table td:nth-child(2){
+                width:25%;
+            }
+
+            .board-table th:nth-child(3),
+            .board-table td:nth-child(3){
+                width:63%;
+            }
+
+            /* 커뮤니티 버튼 */
+            /* 게시판 제목 + 버튼 */
+            .board-header{
+                display:flex;
+                justify-content:space-between;
+                align-items:center;
+                margin-bottom:30px;
+            }
+
+            /* 기존 section-title 여백 제거 */
+            .community .section-title{
+                margin-bottom:0;
+            }
+
+            /* 글쓰기 버튼 -> GPT 사용 */
+            .write-btn{
+                display:inline-block;
+                padding:12px 24px;
+                margin-left: 30px;
+                background:#8b0000;
+                color:white;
+                text-decoration:none;
+                border-radius:8px;
+                font-weight:600;
+                transition:0.3s;
+            }
+
+            .write-btn:hover{
+                background:#b30000;
+                transform:translateY(-2px);
+                box-shadow:0 4px 12px rgba(179,0,0,0.4);
+            }
+
+
+            /* 문의 섹션 */
+            /* 문의 섹션 전체 */
+            .contact {
+                padding: 80px 0;
+                background: linear-gradient(
+                    180deg,22x  
+                    #0f0f0f 0%,
+                    #161616 50%,
+                    #1c1c1c 100%
+                );
+                color: #fff;
+            }
+
+            .contact .container {
+                width: 90%;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            /* 제목 */
+            .contact .section-title h2 {
+                color: #b30000;
+                font-size: 36px;
+                font-weight: 700;
+                text-align: center;
+            }
+
+            .contact .section-title p {
+                color: #cfcfcf;
+                text-align: center;
+            }
+
+            /* 왼쪽 정보 박스 */
+            .contact .info {
+                background: rgba(255,255,255,0.05);
+                backdrop-filter: blur(8px);
+                padding: 30px;
+                border-radius: 15px;
+                border: 1px solid rgba(255,255,255,0.1);
+            }
+
+            /* 아이콘 */
+            .contact .info i {
+                font-size: 24px;
+                color: #b30000;
+                margin-right: 10px;
+            }
+
+            .contact .info h4 {
+                color: #fff;
+                font-size: 18px;
+                margin-top: 10px;
+            }
+
+            .contact .info p {
+                color: #cfcfcf;
+                margin-bottom: 25px;
+            }
+
+            /* 폼 */
+            .php-email-form {
+                background: rgba(255,255,255,0.05);
+                backdrop-filter: blur(8px);
+                padding: 30px;
+                border-radius: 15px;
+                border: 1px solid rgba(255,255,255,0.1);
+            }
+
+            /* 입력창 */
+            .php-email-form input,
+            .php-email-form textarea {
+                background: rgba(0,0,0,0.4);
+                border: 1px solid #333;
+                color: #fff;
+                border-radius: 8px;
+                padding: 12px;
+            }
+
+            .php-email-form input:focus,
+            .php-email-form textarea:focus {
+                border-color: #b30000;
+                box-shadow: 0 0 10px rgba(179,0,0,0.5);
+                outline: none;
+            }
+
+            /* placeholder */
+            .php-email-form input::placeholder,
+            .php-email-form textarea::placeholder {
+                color: #999;
+            }
+
+            /* 버튼 */
+            .php-email-form button {
+                background: #b30000;
+                color: white;
+                border: none;
+                padding: 12px 30px;
+                border-radius: 30px;
+                font-weight: 600;
+                transition: 0.3s;
+            }
+
+            .php-email-form button:hover {
+                background: #ff0000;
+                transform: translateY(-3px);
+                box-shadow: 0 5px 15px rgba(255,0,0,0.4);
+            }
+
+            /* 왼쪽/오른쪽 컬럼 높이 맞추기 -> GPT 사용 */
+            .contact .col-lg-8 mt-5 mt-lg-0 {
+                padding-left: 200px;
+                margin: auto;
+                display: flex;
+                align-items: stretch;
+            }
+
+            /* 두 컬럼 모두 높이 100% 사용 */
+            .contact .col-lg-5,
+            .contact .col-lg-7 {
+                display: flex;
+            }
+
+            /* 정보 박스와 문의 폼 높이 맞춤 */
+            .contact .info,
+            .contact .php-email-form {
+                width: 100%;
+                height: 100%;
+            }
+
+            .my-3 {
+                padding: 50px;
+            }
+
+            /* 푸터 섹션 */
+            .copyright {
+                padding: 50px;
+            }
+
+            /* 맨 첫 페이지로 올라가기 버튼 -> GPT 사용 */
+            .back-to-top{
+                position: fixed;
+                right: 20px;
+                bottom: 20px;
+
+                width: 50px;
+                height: 50px;
+
+                background: #8b0000;
+                border-radius: 50%;
+
+                box-shadow: 0 0 15px rgba(139,0,0,.6);
+
+                text-decoration: none;
+            }
+
+            .back-to-top::before{
+                content: "";
+
+                position: absolute;
+                top: 18px;
+                left: 16px;
+
+                width: 15px;
+                height: 15px;
+
+                border-top: 3px solid white;
+                border-left: 3px solid white;
+
+                transform: rotate(45deg);
+            }
+            
+        </style>
+    </head>
+
+    <body>
+        <!--헤더-->
+        <header id="header" class="fixed-top">
+            <div class="container">
+                <h1 class="logo">
+                    <a href="index.html">HORROR GUIDE</a>
+                </h1>
+                
+                <!--내비게이션 바-->
+                <nav id="navbar" class="navbar">
+                    <ul class="menu">
+                        <li><a class="nav-link scrollto" href="#hero">홈</a></li>
+                        <li><a class="nav-link scrollto" href="#about">사이트 소개</a></li>
+                        <li><a class="nav-link scrollto" href="#genre">공포 장르</a></li>
+                        <li><a class="nav-link scrollto" href="#novel">추천 작품</a></li>
+                        <li><a class="nav-link scrollto" href="#trend">공포 트렌드</a></li>
+                        <li><a class="nav-link scrollto" href="#community">커뮤니티 게시판</a></li>
+                        <li><a class="nav-link scrollto" href="#contact">문의</a></li>
+                    </ul>
+                    <i class="bi bi-list mobile-nav-toggle"></i>
+                </nav>
+            </div>
+        </header>
+
+
+        <main id="main">
+            <!--홈 섹션-->
+            <section id="hero" class="hero">
+                <div class="container d-flex align-items-center justify-content-between">
+                    <br>
+                    <h3><strong>Welcome to</strong></h3>
+                    <h1>HORROR GUIDE</h1>
+                    <h3>당신의 취향에 맞는 공포를 찾아보세요</h3>
+                    <div class="btn-get-started">
+                        <a href="#about" class="font_center">금지된 기록 열기</a>
+                    </div>
+                </div>
+            </section>
+
+            <!--사이트 소개 섹션-->
+            <section id="about" class="about">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>사이트 소개</h2><br>
+                        <p>
+                            당신은 지금 수많은 공포의 기록이 잠들어 있는 아카이브의 문 앞에 서 있습니다.<br><br>
+                            HORROR GUIDE는 단순히 공포 작품을 소개하는 공간이 아닙니다.<br>
+                            이곳은 국내 공포 소설, 괴담, 도시전설, 미스터리 사건, 심리 공포 이야기 등 다양한 공포 콘텐츠를 한곳에 모아 보관하는 기록 보관소입니다.<br><br>
+                            오랫동안 사람들 사이에서 전해져 내려온 기이한 이야기들, 한밤중에 읽으면 쉽게 잠들 수 없는 괴담들, 현실과 허구의 경계에서 독자들을 불안하게 만드는 미스터리한 기록들이 이곳에 남겨져 있습니다.<br><br>
+                            우리는 각 작품과 이야기를 장르별로 정리하여 누구나 자신의 취향에 맞는 공포를 탐색할 수 있도록 구성하였습니다.<br>
+                            섬뜩한 심리 공포를 원하든, 등골을 서늘하게 만드는 도시전설을 찾고 있든, 혹은 설명할 수 없는 기묘한 이야기들을 좋아하든 이곳에서 새로운 공포를 발견할 수 있을 것입니다.<br><br>
+                            다만 한 가지는 기억해 두십시오.<br><br>
+                            모든 이야기가 단순한 상상에서 시작되었다고 장담할 수는 없습니다.<br>
+                            어떤 기록은 오래전 누군가의 경험담에서 비롯되었고, 어떤 이야기는 아직도 그 진실이 밝혀지지 않은 채 사람들 사이를 떠돌고 있습니다.<br><br>
+                            이제 아카이브의 문은 열렸습니다.<br><br>
+                            준비가 되었다면 천천히 둘러보십시오.<br>
+                            하지만 너무 깊이 들어가지는 마세요.<br>
+                            어쩌면 당신이 찾고 있는 공포가, 이미 당신을 기다리고 있을지도 모릅니다.<br><br><br>
+                        </p>
+                        <a href="about_content.html" class="btn-learn-more">기록의 시작을 확인하기</a>
+                    </div>
+                </div>
+            </section>
+
+            <!--공포 장르 섹션-->
+            <section id="genre" class="genre">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>공포 장르</h2>
+                        <p>
+                            당신이 원하는 공포는 무엇인가요?<br>
+                            다양한 공포 장르를 탐색해 보세요.
+                        </p>
+                    </div>
+
+                    <!-- 첫 번째 줄 -->
+                    <div class="genre-row top-row">
+                        
+                        <div class="icon-box">
+                            <a href="genre_content.html" class="genre-link">
+                                <div class="icon"><i class="bi bi-eye"></i></div>
+                                <h4>심리 공포</h4>
+                                <p>인간 내면의 불안과 광기를 다루는 공포</p>
+                            </a>
+                        </div>
+
+                        <div class="icon-box">
+                            <div class="icon"><i class="bi bi-ghost"></i></div>
+                            <h4>귀신·괴담</h4>
+                            <p>원혼과 저주, 전통 괴담 중심의 공포</p>
+                        </div>
+
+                        <div class="icon-box">
+                            <div class="icon"><i class="bi bi-building"></i></div>
+                            <h4>도시전설</h4>
+                            <p>인터넷과 현실 사이의 기묘한 이야기</p>
+                        </div>
+
+                        <div class="icon-box">
+                            <div class="icon"><i class="bi bi-bug"></i></div>
+                            <h4>괴물·크리처</h4>
+                            <p>정체불명의 존재가 선사하는 공포</p>
+                        </div>
+
+                    </div>
+
+                    <!-- 두 번째 줄 -->
+                    <div class="genre-row bottom-row">
+
+                        <div class="icon-box">
+                            <div class="icon"><i class="bi bi-person-running"></i></div>
+                            <h4>스릴러·서바이벌</h4>
+                            <p>살아남기 위한 긴장감 넘치는 이야기</p>
+                        </div>
+
+                        <div class="icon-box">
+                            <div class="icon"><i class="bi bi-moon-stars"></i></div>
+                            <h4>오컬트·종교</h4>
+                            <p>금기된 의식과 초자연 현상</p>
+                        </div>
+
+                        <div class="icon-box">
+                            <div class="icon"><i class="bi bi-globe2"></i></div>
+                            <h4>코즈믹 공포</h4>
+                            <p>이해할 수 없는 존재가 주는 공포</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--추천 작품 섹션-->
+            <section id="novel" class="novel">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>추천 작품</h2>
+                        <p>
+                            다양한 공포 장르에 바탕한 추천 작품입니다.<br>
+                            마음껏 구경해보세요.
+                        </p>
+                    </div>
+
+                    <!-- 첫 번째 줄 -->
+                    <div class="genre-row top-row">
+
+                        <div class="icon-box">
+                            <a href="novel_content.html" class="genre-link">
+                                <div class="icon"><i class="bi bi-eye"></i></div>
+                                <h4>추천 작품 1</h4>
+                                <p>제목: 작가: </p>
+                            </a>
+                        </div>
+
+                        <div class="icon-box">
+                            <div class="icon"><i class="bi bi-ghost"></i></div>
+                            <h4>추천 작품 2</h4>
+                            <p>제목: 작가:</p>
+                        </div>
+
+                        <div class="icon-box">
+                            <div class="icon"><i class="bi bi-building"></i></div>
+                            <h4>추천 작품 3</h4>
+                            <p>제목: 작가: </p>
+                        </div>
+
+                        <div class="icon-box">
+                            <div class="icon"><i class="bi bi-bug"></i></div>
+                            <h4>추천 작품 4</h4>
+                            <p>제목: 작가: </p>
+                        </div>
+
+                    </div>
+
+                    <!-- 두 번째 줄 -->
+                    <div class="genre-row top-row">
+
+                        <div class="icon-box">
+                            <div class="icon"><i class="bi bi-person-running"></i></div>
+                            <h4>추천 작품 5</h4>
+                            <p>제목: 작가: </p>
+                        </div>
+
+                        <div class="icon-box">
+                            <div class="icon"><i class="bi bi-moon-stars"></i></div>
+                            <h4>추천 작품 6</h4>
+                            <p>제목: 작가: </p>
+                        </div>
+
+                        <div class="icon-box">
+                            <div class="icon"><i class="bi bi-globe2"></i></div>
+                            <h4>추천 작품 7</h4>
+                            <p>제목: 작가: </p>
+                        </div>
+
+                        <div class="icon-box">
+                            <div class="icon"><i class="bi bi-globe2"></i></div>
+                            <h4>추천 작품 8</h4>
+                            <p>제목: 작가: </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--공포 트렌트 섹션-->
+            <section id="trend" class="trend">
+
+                <div class="container">
+
+                    <div class="section-title">
+                        <h2>공포 트렌드</h2>
+                        <p>최근 가장 많은 관심을 받고 있는 공포 장르와 소재</p>
+                    </div>
+
+                    <ul class="trend-tabs">
+
+                        <li class="active" data-filter="all">전체</li>
+                        <li data-filter="ghost">괴담</li>
+                        <li data-filter="occult">오컬트</li>
+                        <li data-filter="psychological">심리공포</li>
+                        <li data-filter="urban">도시전설</li>
+                        <li data-filter="ai">괴물·크리처</li>
+
+                    </ul>
+
+                    <div class="trend-board">
+
+                        <div class="trend-row ghost">
+                            <span class="rank">1</span>
+                            <span class="category">괴담</span>
+                            <span class="title">학교괴담 소재 작품 조회수 급증</span>
+                            <span class="change up">▲ 43%</span>
+                        </div>
+
+                        <div class="trend-row ai">
+                            <span class="rank">2</span>
+                            <span class="category">괴물·크리처</span>
+                            <span class="title">좀비 기반 괴담 인기 상승</span>
+                            <span class="change up">▲ 38%</span>
+                        </div>
+
+                        <div class="trend-row occult">
+                            <span class="rank">3</span>
+                            <span class="category">오컬트</span>
+                            <span class="title">무속·퇴마 장르 재유행</span>
+                            <span class="change up">▲ 31%</span>
+                        </div>
+
+                        <div class="trend-row urban">
+                            <span class="rank">4</span>
+                            <span class="category">도시전설</span>
+                            <span class="title">엘리베이터 괴담 콘텐츠 증가</span>
+                            <span class="change up">▲ 25%</span>
+                        </div>
+
+                        <div class="trend-row psychological">
+                            <span class="rank">5</span>
+                            <span class="category">심리공포</span>
+                            <span class="title">인간 광기 중심 서사 인기</span>
+                            <span class="change up">▲ 20%</span>
+                        </div>
+
+                        <div class="trend-row ghost">
+                            <span class="rank">6</span>
+                            <span class="category">괴담</span>
+                            <span class="title">실화 괴담 모음집 조회수 상승</span>
+                            <span class="change up">▲ 18%</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!--커뮤니티 게시판 섹션-->
+            <section id="community" class="community">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>커뮤니티 게시판</h2>
+                        <a href="community_content.html" class="write-btn">글쓰기</a>
+                    </div>
+                    <table class="board-table">
+
+                        <thead>
+                            <tr>
+                                <th>번호</th>
+                                <th>카테고리</th>
+                                <th>제목</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>1</td>
+                                <td>귀신·괴담</td>
+                                <td>심연교통공사에 어서오세요</td>
+                            </tr>
+
+                            <tr>
+                                <td>2</td>
+                                <td>오컬트·종교</td>
+                                <td>부서</td>
+                            </tr>
+
+                            <tr>
+                                <td>3</td>
+                                <td>스릴러·서바이벌</td>
+                                <td>안녕 교통정보</td>
+                            </tr>
+
+                            <tr>
+                                <td>4</td>
+                                <td>도시전설</td>
+                                <td>선택해 줘</td>
+                            </tr>
+
+                            <tr>
+                                <td>5</td>
+                                <td>괴물·크리처</td>
+                                <td>산제물의 합창가</td>
+                            </tr>
+
+                            <tr>
+                                <td>6</td>
+                                <td>코즈믹 공포</td>
+                                <td>커스텀 장비 제작 어둠</td>
+                            </tr>
+
+                            <tr>
+                                <td>7</td>
+                                <td>심리 공포</td>
+                                <td>친절한 씨앗 키트</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+                </div>
+            </section>
+
+            <!--문의 섹션-->
+            <section id="contact" class="contact">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>문의</h2>
+                        <p>문의 사항이 있으시면 아래로 연락 부탁드립니다.</p>
+                    </div>
+
+                    <div class="row mt-5">
+                        <div class="col-lg-4">
+                            <div class="info">
+                                <div class="address">
+                                    <i class="bi bi-geo-alt"></i>
+                                    <h4>위치:</h4>
+                                    <p>중앙대학교 원형관</p>
+                                </div>
+                            
+                                <div class="email">
+                                    <i class="bi bi-envelope"></i>
+                                    <h4>이메일:</h4>
+                                    <p>info@example.com</p>
+                                </div>
+
+                                <div class="phone">
+                                    <i class="bi bi-phone"></i>
+                                    <h4>전화:</h4>
+                                    <p>010-0000-0000</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-8 mt-5 mt-lg-0">
+                            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                                </div>
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                                </div>
+                            </div>
+                            <div class="form-group mt-3">
+                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                            </div>
+                            <div class="form-group mt-3">
+                                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                            </div>
+                            <div class="my-3">
+                                <div class="loading">Loading</div>
+                                <div class="error-message"></div>
+                                <div class="sent-message">Your message has been sent. Thank you!</div>
+                            </div>
+                            <div class="text-center"><button type="submit">Send Message</button></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer id="footer">
+            <div class="container d-md-flex py-4">
+                <div class="me-md-auto text-center text-md-start">
+                    <div class="copyright">
+                        " © Copyright " <storng><span>HORROR GUIDE</span></storng> ". All Rights Reserved"
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <a href="#hero" class="back-to-top d-flex align-items-center justify-content-center active">
+            <i class="bi bi-arrow-up-short"></i>
+        </a>
+
+        <!-- Vendor JS Files -->
+        <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+        <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+        <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+        <script src="assets/vendor/php-email-form/validate.js"></script>
+
+        <!-- Template Main JS File -->
+        <script src="main.js"></script>
+    </body>
+</html>
