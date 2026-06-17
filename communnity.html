@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HORROR GUIDE</title>
+
+        <meta name="viewport" content="user-scalable-no,initial-scale=1,maximum-scale=1">
+
+        <style>
+            /* 폰트 */
+            @font-face {
+                font-family: 'HbiosSys';
+                src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2207-01@1.0/HBIOS-SYS.woff2') format('woff2');
+                font-weight: normal;
+                font-display: swap;
+            }
+            .paragraph1 { font-family: "HbiosSys", serif }
+
+            @font-face {
+                font-family: 'DosHandwriting';
+                src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/DOSPilgiMedium.woff2') format('woff2');
+                font-weight: normal;
+                font-display: swap;
+            }
+            .paragraph2 { font-family: "DosHandwriting", serif }
+
+            @font-face {
+                font-family: 'RoundedFixedsys';
+                src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
+                font-weight: normal;
+                font-display: swap;
+            }
+            .paragraph3 { font-family: "RoundedFixedsys", serif }
+
+            /* 반응형 */
+            @media screen {
+                body {
+                    color: white;
+                    background-color: #393939; }
+            }
+
+            /* 태블릿 */
+            @media (max-width: 992px) {
+                .top-row,
+                .bottom-row {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+
+            /* 모바일 */
+            @media (max-width: 576px) {
+                .top-row,
+                .bottom-row {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            *{
+                margin:0;
+                padding:0;
+                box-sizing:border-box;
+            }
+
+            body{
+                background:#4e4e4e;
+            }
+
+            /* 헤더 */
+            .header{
+                display:flex;
+                justify-content:center;
+                align-items:center;
+                padding: 80px;
+                background:#2f2f2f;
+            }
+
+            #header {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                padding: 10px 0;
+                z-index: 9999;
+                background: #111;
+            }
+            
+            #header .container {
+                display: flex;
+                align-items: center;
+            }
+
+            /* 네비게이션 바 */
+            #navbar {
+                margin-left: 600px;
+            }
+
+            .logo a{
+                text-decoration:none;
+                color:white;
+                font-size:30px;
+                padding: 10px;
+                margin: 10px;
+            }
+
+            .menu{
+                display:flex;
+                list-style:none;
+                gap:50px;
+                padding: 10px;
+            }
+
+            .menu a{
+                text-decoration:none;
+                color:white;
+                font-size:18px;
+                font-weight:600;
+                transition:0.3s;
+            }
+
+            .menu a:hover{
+                color:#c0392b;
+            }
+
+            /* 커멘트 */
+            .board-view {
+                padding: 150px;
+            }
+
+            .post-info {
+                line-height: 80px;
+            }
+
+            .post-content {
+                margin-top: 150px;
+            }
+
+            .comment-section h3{
+                padding-left: 100px;
+            }
+
+            .comment-write{
+                padding: 0 100px;
+                display:flex;
+                margin-top:20px;
+            }
+
+            .comment-write textarea{
+                flex:1;
+                height:120px;
+                resize:none;
+                padding:15px;
+                margin-bottom: 100px;
+            }
+
+            .comment-write button{
+                width:180px;
+                border:none;
+                background:#444;
+                color:white;
+                cursor:pointer;
+                margin-bottom: 100px;
+            }
+
+            /* 푸터 섹션 */
+            .copyright {
+                padding: 50px;
+                background:#333;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <!--헤더-->
+        <header id="header" class="fixed-top">
+            <div class="container">
+                <h1 class="logo">
+                    <a href="index.html">HORROR GUIDE</a>
+                </h1>
+                
+                <!--내비게이션 바-->
+                <nav id="navbar" class="navbar">
+                    <ul class="menu">
+                        <li><a class="nav-link scrollto" href="#hero">홈</a></li>
+                        <li><a class="nav-link scrollto" href="#about">사이트 소개</a></li>
+                        <li><a class="nav-link scrollto" href="#genre">공포 장르</a></li>
+                        <li><a class="nav-link scrollto" href="#novel">추천 작품</a></li>
+                        <li><a class="nav-link scrollto" href="#trend">공포 트렌드</a></li>
+                        <li><a class="nav-link scrollto" href="#community">커뮤니티 게시판</a></li>
+                        <li><a class="nav-link scrollto" href="#contact">문의</a></li>
+                    </ul>
+                    <i class="bi bi-list mobile-nav-toggle"></i>
+                </nav>
+            </div>
+        </header>
+
+        <section class="board-view">
+
+            <div class="post-header">
+                <h2>괴담 출근길에서 본 이상한 사람</h2>
+
+                <div class="post-info">
+                    <span>작성자 : 관리자</span>
+                    <span>2026-06-16</span>
+                    <span>조회수 325</span>
+                </div>
+            </div>
+
+            <div class="post-content">
+                퇴근길 지하철에서 이상한 사람을 보았습니다...
+            </div>
+
+        </section>
+
+        <section class="comment-section">
+            <h3>댓글 0</h3>
+            <div class="comment-write">
+
+                <textarea
+                id="commentInput"
+                placeholder="댓글을 입력하세요"></textarea>
+
+                <button id="commentBtn">
+                    댓글 쓰기
+                </button>
+
+            </div>
+            <div id="commentList"></div>
+
+        </section>
+
+        <footer id="footer">
+            <div class="container d-md-flex py-4">
+                <div class="me-md-auto text-center text-md-start">
+                    <div class="copyright">
+                        " © Copyright " <storng><span>HORROR GUIDE</span></storng> ". All Rights Reserved"
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </body>
+</html>
